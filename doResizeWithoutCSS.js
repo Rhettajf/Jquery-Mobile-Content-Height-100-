@@ -8,4 +8,4 @@ winhigh = winhigh - headhigh - foothigh - contentpaddingheight; //Calculate out 
 $content.css('min-height',winhigh + 'px'); //Set new content height
 }
 $(document).bind('pageshow',doResize); //Call function on page show
-$(window).bind('resize, orientationchange',doResize); //Call function on resize and orientation change
+$(window).bind('resize orientationchange',doResize); //Call function on resize and orientation change
