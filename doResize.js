@@ -6,5 +6,5 @@ var $content=$('[data-role="content"]');
 newhight = winhight - headhight - foothight; 
 $content.css('min-height',newhight + 'px');
 }
-$(document).bind('pageshow',doResize);
-$(window).bind('resize, orientationchange',doResize);
+$(document).bind('pageshow', doResize);
+$(window).bind('resize, orientationchange', doResize);
