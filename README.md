@@ -1,5 +1,5 @@
-jQuery-Mobile-Content-Height-100-
-=================================
+jQuery-Mobile-Content-Height-100
+================================
 
 Function to resize jQuery Mobile Content Height to 100% onload, orientation change, and window resize.
 
