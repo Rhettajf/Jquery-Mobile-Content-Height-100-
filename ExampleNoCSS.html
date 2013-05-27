@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Mobile 100% Content Height</title>         
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+</head>
+<body>
+    <section data-role="page" data-theme="a">
+        <header data-role="header" data-theme="a" data-inline="true">
+            <h1>I'm a header</h1>
+        </header><!-- /header -->
+        <article data-role="content" data-theme="a" >
+            <h1>I'm Content</h1>
+        </article><!-- /article -->
+        <footer data-role="footer" class="ui-bar" data-theme="a">
+            <h1>I'm a Footer</h1>
+        </footer><!-- /footer -->     
+        <script type="text/javascript">
+function doResize() {
+var winhigh = $.mobile.getScreenHeight(); //Get available screen height, not including any browser chrome
+var headhigh = $('[data-role="header"]').first().outerHeight(); //Get height of first page's header
+var foothigh = $('[data-role="footer"]').first().outerHeight(); //Get height of first page's header
+var $content=$('[data-role="content"]');
+var contentpaddingheight=parseInt($content.css("padding-top").replace("px", ""))+parseInt($content.css("padding-bottom").replace("px", "")); //Get height of themes content containers padding
+winhigh = winhigh - headhigh - foothigh - contentpaddingheight; //Calculate out new height (-2 if you have a 1px border on content container)
+$content.css('min-height',winhigh + 'px'); //Set new content height
+}
+$(document).bind('pageshow', doResize); //Call function on page show
+$(window).bind('resize orientationchange', doResize); //Call function on resize and orientation change
+        </script> 
+    </section><!-- /section/page --> 
+</body>
+</html>
